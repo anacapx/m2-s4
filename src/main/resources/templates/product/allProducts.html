@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All Products</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1> Products </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Estoque</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${products.empty}">
+          <td colspan="2"> Não há productos disponíveis </td>
+        </tr>
+        <tr th:each="product : ${products}">
+          <td><span th:text="${product.id}"> Id </span></td>
+          <td><span th:text="${product.name}"> Nome </span></td>
+          <td><span th:text="${product.description}"> Descrição </span></td>
+          <td><span th:text="${product.price}"> Preço </span></td>
+          <td><span th:text="${product.stock}"> Estoque </span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-success" href="#" th:href="@{/}"> Voltar à página inicial </a>
+      <a class="btn btn-success" href="#" th:href="@{/product/register/formquantity}"> Incluir produtos </a>
+<!--      <a class="btn btn-primary" href="#" th:href="@{/product/edit}" th:classappend="${books.empty} ? 'disabled' : ''"> Edit Books </a>-->
+    </div>
+  </div>
+</div>
+</body>
+</html>
