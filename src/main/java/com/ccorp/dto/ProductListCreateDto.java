@@ -1,18 +1,18 @@
-package com.ccorp.DTO;
+package com.ccorp.dto;
 
 import com.ccorp.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductListCreateDTO {
+public class ProductListCreateDto {
 
     private List<Product> products;
 
-    public ProductListCreateDTO(List<Product> products) {
+    public ProductListCreateDto(List<Product> products) {
         this.products = products;
     }
 
-    public ProductListCreateDTO() {
+    public ProductListCreateDto() {
         this.products = new ArrayList<>();
     }
 

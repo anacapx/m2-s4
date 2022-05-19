@@ -3,46 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" />
 </head>
 <body>
 <div align="center">
 
     <div><h2>Cadastrar produtos</h2></div>
 
-    <div align="left">
-
-<!--        <form action="#" th:action="@{/product/register}" method="post">-->
-<!--            Quantidade de produtos a cadastrar:[[${quantity}]]-->
-
-<!--            <th:block th:each="i: ${#numbers.sequence(1, quantity)}">-->
-<!--                <p>-->
-<!--                    Produto <span th:text="${i}" />-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    <label for="name">Nome</label>-->
-<!--                    <input type="text" id="name" name="name" required />-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    <label for="description">Descrição</label>-->
-<!--                    <input type="text" id="description" name="description" required />-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    <label for="price">Preço</label>-->
-<!--                    <input type="number" id="price" name="price" step=".01" $required />-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    <label for="stock">Estoque</label>-->
-<!--                    <input type="number" id="stock" name="stock" required />-->
-<!--                </p>-->
-<!--            </th:block>-->
-
-
+    <div align="center">
 
     <form action="#" th:action="@{/product/register}" th:object="${form}" method="post">
 
         <fieldset>
-            <input type="submit" id="submitButton" th:value="Save">
-            <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+            <input class="btn btn-success" type="submit" id="submitButton" th:value="Save">
+            <input class="btn btn-warning" type="reset" id="resetButton" name="reset" th:value="Reset"/>
             <table border="1">
                 <thead>
                     <tr>
@@ -56,8 +30,8 @@
                     <tr th:each="product, itemStat : *{products}">
                         <td><input th:field="*{products[__${itemStat.index}__].name}" /></td>
                         <td><input th:field="*{products[__${itemStat.index}__].description}" /></td>
-                        <td><input th:field="*{products[__${itemStat.index}__].price}" /></td>
-                        <td><input th:field="*{products[__${itemStat.index}__].stock}" /></td>
+                        <td><input th:field="*{products[__${itemStat.index}__].price}" type="number" step=".01"/></td>
+                        <td><input th:field="*{products[__${itemStat.index}__].stock}" type="number" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -65,63 +39,11 @@
         </fieldset>
     </form>
 
-
-
-
-<!--            <th:block th:each="i: ${#numbers.sequence(1, quantity)}">-->
-<!--            <tr>-->
-<!--                <td><label th:text="${name}" /></td>-->
-<!--                <td><input type="text" th:field="*{products[__${i.index}__].name}" /></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><label th:text="${description}" /></td>-->
-<!--                <td><input type="text" name="*{productList[${i.index}].description}" /></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><label th:text="${price}" /></td>-->
-<!--                <td><input type="number" name="*{productList[${i.index}].price}" /></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><label th:text="${stock}" /></td>-->
-<!--                <td><input type="number" name="*{productList[${i.index}].stock}" /></td>-->
-<!--            </tr>-->
-<!--            </th:block>-->
-
-<!--        </table>-->
-
-<!--        <th:block th:each="i: ${#numbers.sequence(1, quantity)}">-->
-<!--            <p>-->
-<!--            Produto <span th:text="${i}" />-->
-<!--            </p>-->
-<!--        <p>-->
-<!--            <label for="name">Nome</label>-->
-<!--            <input type="text" id="name" name="name" required />-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label for="description">Descrição</label>-->
-<!--            <input type="text" id="description" name="description" required />-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label for="price">Preço</label>-->
-<!--            <input type="number" id="price" name="price" step=".01" $required />-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label for="stock">Estoque</label>-->
-<!--            <input type="number" id="stock" name="stock" required />-->
-<!--        </p>-->
-<!--        </th:block>-->
-<!--        <p>-->
-<!--            <button type="submit">Enviar</button>-->
-<!--        </p>-->
-<!--    </form>-->
     </div>
 
-    <form action="/" method="get" >
-        <p>
-            <button type="submit">Voltar à pagina inicial</button>
-        </p>
-    </form>
-
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/}"> Voltar à página inicial </a>
+    </div>
 
 </div>
 

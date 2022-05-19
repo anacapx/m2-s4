@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" />
 </head>
 <body>
 
@@ -10,18 +11,10 @@
 
     <div><h2>Produtos</h2></div>
 
-    <form action="/product/register/formquantity" method="get" >
-        <p>
-            <button type="submit">Cadastrar produtos</button>
-        </p>
-    </form>
-
-    <form action="/" method="get" >
-        <p>
-            <button type="submit">Voltar à pagina inicial</button>
-        </p>
-    </form>
-
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="#" th:href="@{/product/register/formquantity}"> Cadastrar produtos </a>
+        <a class="btn btn-primary" href="#" th:href="@{/}"> Voltar à pagina inicial </a>
+    </div>
 
 </div>
 
